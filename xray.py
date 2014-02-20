@@ -99,8 +99,8 @@ def source_optic_materials(e_pulse, optic_name, materials_thickness, solid_angle
     if energies is None: energies = optic.energies
     return sources[source_name].spectrum(energies, e_pulse)*optic.transmission(energies, solid_angle)*materials_transmission(energies, materials_thickness)
 
-def source_optic_materials_absorber(e_pulse, optic_name, materials_thickness, solid_angle=None, energies = None, absorber_material='Bi', absober_length_um=2, source_name = "water_jet_2013"):
-    return materials[absorber_material].absorbtion(energies, absober_length_um)*source_optic_materials(e_pulse, optic_name, materials_thickness, solid_angle, energies, source_name)
+def source_optic_materials_absorber(e_pulse, optic_name, materials_thickness, solid_angle=None, energies = None, absorber_material='Bi', absorber_length_um=2, source_name = "water_jet_2013"):
+    return materials[absorber_material].absorbtion(energies, absorber_length_um)*source_optic_materials(e_pulse, optic_name, materials_thickness, solid_angle, energies, source_name)
     
 materials=read_material_files()
 optics=read_optic_files()
