@@ -89,7 +89,7 @@ def plasma_source_spectrum(energies, N0, T):
     return N0*numpy.exp(-energies/T)
 
 def materials_transmission(energies, materials_thickness):
-    flux = numpy.ones_like(energies)
+    flux = numpy.ones_like(energies, dtype='float')
     for material,thickness in materials_thickness.iteritems():
         flux*=materials[material].transmission(energies, thickness)
     return flux
